@@ -1,0 +1,25 @@
+.display {
+  margin-bottom: 18px;
+  border-bottom: 2px solid rgba($color: #ffffff, $alpha: 0.35);
+  &__calculations,
+  &__result {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+    color: #f2f2f2;
+  }
+  &__calculations {
+    height: 117px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 28px;
+  }
+  &__result {
+    height: 76px;
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 80px;
+  }
+}
