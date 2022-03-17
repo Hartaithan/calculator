@@ -1,0 +1,24 @@
+.key {
+  height: 80px;
+  width: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 88px;
+  text-align: center;
+  color: #f2f2f2;
+  cursor: pointer;
+  &.equals {
+    background: #ffffff !important;
+    color: #2b589a;
+  }
+  &:hover {
+    background: rgba($color: #ffffff, $alpha: 0.12);
+  }
+}
