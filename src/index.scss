@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Goldman";
 }
 
 html,
@@ -36,4 +37,19 @@ body,
     0px 10.2677px 19.7841px rgba(0, 0, 0, 0.175),
     0px 3.71362px 7.1555px rgba(0, 0, 0, 0.121944);
   border-radius: 18px;
+  padding: 16px 48px 44px 46px;
+}
+
+@font-face {
+  font-family: "Goldman";
+  font-weight: 500;
+  src: local("Geometria-Medium"),
+    url("./fonts/Geometria-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Goldman";
+  font-weight: 700;
+  src: local("Geometria-Bold"),
+    url("./fonts/Geometria-Bold.ttf") format("truetype");
 }
