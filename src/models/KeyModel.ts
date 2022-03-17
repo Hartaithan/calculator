@@ -5,6 +5,7 @@ export interface IKey {
 }
 
 export interface IKeyProps {
-  type: string;
+  action: string;
   content: string;
+  onClick: () => void;
 }

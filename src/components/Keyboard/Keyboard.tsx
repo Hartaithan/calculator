@@ -1,4 +1,5 @@
 import React from "react";
+import { IKeyboardProps } from "../../models/KeyboardModel";
 import { IKey } from "../../models/KeyModel";
 import Key from "../Key/Key";
 import "./keyboard.scss";
@@ -26,11 +27,22 @@ const keys: IKey[] = [
   { id: 20, type: "equals", content: "=" },
 ];
 
-const Keyboard: React.FC = () => {
+const Keyboard: React.FC<IKeyboardProps> = (props) => {
+  const [calculations, setCalculations] = props.calculations;
+
+  const updateCalculations = (value: string) => {
+    setCalculations(calculations + value);
+  };
+
   return (
     <div className="keyboard">
       {keys.map((item: IKey) => (
-        <Key key={item.content} type={item.type} content={item.content} />
+        <Key
+          key={item.content}
+          action={item.type}
+          content={item.content}
+          onClick={() => updateCalculations(item.content)}
+        />
       ))}
     </div>
   );

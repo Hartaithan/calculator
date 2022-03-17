@@ -3,8 +3,12 @@ import { IKeyProps } from "../../models/KeyModel";
 import "./key.scss";
 
 const Key: React.FC<IKeyProps> = (props) => {
-  const { type, content } = props;
-  return <button className={`key ${type}`}>{content}</button>;
+  const { action, content } = props;
+  return (
+    <button className={`key ${action}`} {...props}>
+      {content}
+    </button>
+  );
 };
 
 export default Key;
