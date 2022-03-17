@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <div className="wrapper">
       <div className="body">
         <Display calculations={calculations} result={result} />
-        <Keyboard calculations={calculations} />
+        <Keyboard calculations={calculations} result={result} />
       </div>
     </div>
   );
