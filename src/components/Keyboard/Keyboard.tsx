@@ -65,6 +65,13 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
       setCalculations(result);
       return;
     }
+    if (item.type === KeyTypes.PERCENT) {
+      // eslint-disable-next-line no-eval
+      const result = (eval(calc) / 100).toString();
+      setResult(result);
+      setCalculations(result);
+      return;
+    }
     setCalculations(calculations + item.content);
   };
 
