@@ -5,9 +5,9 @@ import Key from "../Key/Key";
 import "./keyboard.scss";
 
 const keys: IKey[] = [
-  { id: 1, type: KeyTypes.DELETE, content: "C" },
-  { id: 2, type: KeyTypes.OPERATION, content: "√" },
-  { id: 3, type: KeyTypes.OPERATION, content: "%" },
+  { id: 1, type: KeyTypes.CLEAR, content: "C" },
+  { id: 2, type: KeyTypes.SQUARE, content: "√" },
+  { id: 3, type: KeyTypes.PERCENT, content: "%" },
   { id: 4, type: KeyTypes.OPERATION, content: "/" },
   { id: 5, type: KeyTypes.DIGIT, content: "7" },
   { id: 6, type: KeyTypes.DIGIT, content: "8" },
@@ -32,13 +32,16 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
   const [result, setResult] = props.result;
 
   const updateCalculations = (item: IKey) => {
+    const calc = calculations
+      .split("")
+      .join("")
+      .replace("×", "*")
+      .replace(",", ".");
     const typeOperation = item.type === KeyTypes.OPERATION;
-    const calcIsEmpty = calculations === "";
-    const findedKey = keys.find(
-      (item) => item.content === calculations.slice(-1)
-    );
+    const calcIsEmpty = calc === "";
+    const findedKey = keys.find((item) => item.content === calc.slice(-1));
     const lastNotOperation = findedKey?.type === KeyTypes.OPERATION;
-    if (item.type === KeyTypes.DELETE) {
+    if (item.type === KeyTypes.CLEAR) {
       setCalculations("");
       setResult("");
       return;
@@ -48,7 +51,18 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
     }
     if (item.type === KeyTypes.EQUALS) {
       // eslint-disable-next-line no-eval
-      setResult(eval(calculations).toString());
+      let result = eval(calc).toString();
+      if (result === "Infinity") {
+        result = "Ошибка";
+      }
+      setResult(result);
+      return;
+    }
+    if (item.type === KeyTypes.SQUARE) {
+      // eslint-disable-next-line no-eval
+      const result = Math.sqrt(eval(calc)).toString();
+      setResult(result);
+      setCalculations(result);
       return;
     }
     setCalculations(calculations + item.content);

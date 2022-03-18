@@ -6,8 +6,10 @@ export interface IKeyboardProps {
 }
 
 export enum KeyTypes {
-  DELETE = "delete",
+  CLEAR = "delete",
   OPERATION = "operation",
   DIGIT = "digit",
   EQUALS = "equals",
+  SQUARE = "square",
+  PERCENT = "percent",
 }
