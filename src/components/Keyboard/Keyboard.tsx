@@ -35,8 +35,8 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
     const calc = calculations
       .split("")
       .join("")
-      .replace("×", "*")
-      .replace(",", ".");
+      .replaceAll("×", "*")
+      .replaceAll(",", ".");
     const typeOperation = item.type === KeyTypes.OPERATION;
     const calcIsEmpty = calc === "";
     const findedKey = keys.find((item) => item.content === calc.slice(-1));
