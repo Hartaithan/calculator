@@ -10,7 +10,9 @@ const Display: React.FC<IDisplayModel> = (props) => {
       <p className="display__calculations">
         {calculations ? calculations : "0"}
       </p>
-      <p className="display__result">{result}</p>
+      <div className="display__result">
+        <p>{result}</p>
+      </div>
     </div>
   );
 };
