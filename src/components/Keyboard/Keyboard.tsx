@@ -50,7 +50,6 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
       return;
     }
     if (item.type === KeyTypes.EQUALS) {
-      // eslint-disable-next-line no-eval
       let result = eval(calc).toString();
       if (result === "Infinity") {
         result = "Ошибка";
@@ -59,14 +58,12 @@ const Keyboard: React.FC<IKeyboardProps> = (props) => {
       return;
     }
     if (item.type === KeyTypes.SQUARE) {
-      // eslint-disable-next-line no-eval
       const result = Math.sqrt(eval(calc)).toString();
       setResult(result);
       setCalculations(result);
       return;
     }
     if (item.type === KeyTypes.PERCENT) {
-      // eslint-disable-next-line no-eval
       const result = (eval(calc) / 100).toString();
       setResult(result);
       setCalculations(result);
